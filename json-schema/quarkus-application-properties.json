@@ -1,0 +1,334 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/quarkus/json-schema/quarkus-application-properties.json",
+  "title": "Quarkus Application Configuration",
+  "description": "JSON Schema for Quarkus application.properties / application.yml configuration. Covers HTTP server, datasource, Hibernate ORM, REST client, health, metrics, security, and native image settings.",
+  "type": "object",
+  "properties": {
+    "quarkus": {
+      "type": "object",
+      "properties": {
+        "http": {
+          "type": "object",
+          "description": "HTTP server configuration",
+          "properties": {
+            "port": {
+              "type": "integer",
+              "default": 8080,
+              "description": "HTTP listen port"
+            },
+            "host": {
+              "type": "string",
+              "default": "0.0.0.0",
+              "description": "HTTP listen host"
+            },
+            "ssl-port": {
+              "type": "integer",
+              "default": 8443,
+              "description": "HTTPS listen port"
+            },
+            "root-path": {
+              "type": "string",
+              "default": "/",
+              "description": "Context root for the application"
+            },
+            "cors": {
+              "type": "object",
+              "properties": {
+                "enabled": { "type": "boolean", "default": false },
+                "origins": {
+                  "type": "string",
+                  "description": "Comma-separated allowed origins"
+                },
+                "methods": { "type": "string" },
+                "headers": { "type": "string" },
+                "exposed-headers": { "type": "string" },
+                "access-control-max-age": { "type": "string" }
+              }
+            },
+            "ssl": {
+              "type": "object",
+              "properties": {
+                "certificate": {
+                  "type": "object",
+                  "properties": {
+                    "files": { "type": "string" },
+                    "key-files": { "type": "string" },
+                    "key-store-file": { "type": "string" },
+                    "key-store-password": { "type": "string" },
+                    "key-store-file-type": { "type": "string" }
+                  }
+                }
+              }
+            },
+            "limits": {
+              "type": "object",
+              "properties": {
+                "max-body-size": { "type": "string", "default": "10M" },
+                "max-header-size": { "type": "string", "default": "20K" }
+              }
+            },
+            "access-log": {
+              "type": "object",
+              "properties": {
+                "enabled": { "type": "boolean", "default": false },
+                "pattern": { "type": "string" }
+              }
+            }
+          }
+        },
+        "datasource": {
+          "type": "object",
+          "description": "Agroal datasource configuration",
+          "properties": {
+            "db-kind": {
+              "type": "string",
+              "enum": ["postgresql", "mysql", "mariadb", "h2", "derby", "mssql", "oracle", "db2"],
+              "description": "Database kind"
+            },
+            "jdbc": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "type": "string",
+                  "description": "JDBC URL"
+                },
+                "max-size": {
+                  "type": "integer",
+                  "default": 20,
+                  "description": "Maximum pool size"
+                },
+                "min-size": {
+                  "type": "integer",
+                  "default": 0,
+                  "description": "Minimum pool size"
+                }
+              }
+            },
+            "reactive": {
+              "type": "object",
+              "properties": {
+                "url": { "type": "string" },
+                "max-size": { "type": "integer", "default": 20 }
+              }
+            },
+            "username": { "type": "string" },
+            "password": { "type": "string" }
+          }
+        },
+        "hibernate-orm": {
+          "type": "object",
+          "description": "Hibernate ORM configuration",
+          "properties": {
+            "database": {
+              "type": "object",
+              "properties": {
+                "generation": {
+                  "type": "string",
+                  "enum": ["none", "create", "drop-and-create", "drop", "update", "validate"],
+                  "description": "Schema generation strategy"
+                }
+              }
+            },
+            "log": {
+              "type": "object",
+              "properties": {
+                "sql": { "type": "boolean", "default": false }
+              }
+            },
+            "physical-naming-strategy": { "type": "string" },
+            "second-level-caching-enabled": { "type": "boolean", "default": true }
+          }
+        },
+        "rest-client": {
+          "type": "object",
+          "description": "MicroProfile REST Client configuration",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "url": { "type": "string" },
+              "uri": { "type": "string" },
+              "scope": { "type": "string" },
+              "connect-timeout": { "type": "integer" },
+              "read-timeout": { "type": "integer" }
+            }
+          }
+        },
+        "smallrye-health": {
+          "type": "object",
+          "description": "SmallRye Health configuration",
+          "properties": {
+            "root-path": {
+              "type": "string",
+              "default": "/q/health",
+              "description": "Root path for health endpoints"
+            },
+            "liveness-path": { "type": "string", "default": "/q/health/live" },
+            "readiness-path": { "type": "string", "default": "/q/health/ready" },
+            "startup-path": { "type": "string", "default": "/q/health/started" }
+          }
+        },
+        "smallrye-metrics": {
+          "type": "object",
+          "properties": {
+            "path": {
+              "type": "string",
+              "default": "/q/metrics",
+              "description": "Metrics endpoint path"
+            },
+            "micrometer": {
+              "type": "object",
+              "properties": {
+                "compatibility": { "type": "boolean", "default": false }
+              }
+            }
+          }
+        },
+        "micrometer": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "export": {
+              "type": "object",
+              "properties": {
+                "prometheus": {
+                  "type": "object",
+                  "properties": {
+                    "enabled": { "type": "boolean", "default": true },
+                    "path": { "type": "string", "default": "/q/metrics" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "smallrye-openapi": {
+          "type": "object",
+          "description": "SmallRye OpenAPI configuration",
+          "properties": {
+            "path": {
+              "type": "string",
+              "default": "/q/openapi",
+              "description": "Path to serve the OpenAPI document"
+            },
+            "info-title": { "type": "string" },
+            "info-version": { "type": "string" },
+            "info-description": { "type": "string" }
+          }
+        },
+        "swagger-ui": {
+          "type": "object",
+          "properties": {
+            "always-include": {
+              "type": "boolean",
+              "default": false,
+              "description": "Include Swagger UI in production builds"
+            },
+            "path": {
+              "type": "string",
+              "default": "/q/swagger-ui"
+            }
+          }
+        },
+        "oidc": {
+          "type": "object",
+          "description": "OpenID Connect configuration",
+          "properties": {
+            "auth-server-url": { "type": "string" },
+            "client-id": { "type": "string" },
+            "credentials": {
+              "type": "object",
+              "properties": {
+                "secret": { "type": "string" }
+              }
+            },
+            "application-type": {
+              "type": "string",
+              "enum": ["web-app", "service", "hybrid"]
+            },
+            "token": {
+              "type": "object",
+              "properties": {
+                "issuer": { "type": "string" }
+              }
+            }
+          }
+        },
+        "log": {
+          "type": "object",
+          "description": "Logging configuration",
+          "properties": {
+            "level": {
+              "type": "string",
+              "default": "INFO",
+              "description": "Default root log level"
+            },
+            "min-level": {
+              "type": "string",
+              "default": "DEBUG"
+            },
+            "category": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "properties": {
+                  "level": { "type": "string" },
+                  "min-level": { "type": "string" }
+                }
+              }
+            },
+            "console": {
+              "type": "object",
+              "properties": {
+                "enable": { "type": "boolean", "default": true },
+                "format": { "type": "string" },
+                "json": { "type": "boolean", "default": false }
+              }
+            },
+            "file": {
+              "type": "object",
+              "properties": {
+                "enable": { "type": "boolean", "default": false },
+                "path": { "type": "string" },
+                "format": { "type": "string" }
+              }
+            }
+          }
+        },
+        "native": {
+          "type": "object",
+          "description": "GraalVM native image settings",
+          "properties": {
+            "additional-build-args": {
+              "type": "string",
+              "description": "Additional arguments for native-image"
+            },
+            "resources": {
+              "type": "object",
+              "properties": {
+                "includes": { "type": "string" },
+                "excludes": { "type": "string" }
+              }
+            }
+          }
+        },
+        "package": {
+          "type": "object",
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["jar", "fast-jar", "uber-jar", "native", "native-sources", "legacy-jar"],
+              "default": "fast-jar",
+              "description": "Package type for the application"
+            }
+          }
+        },
+        "profile": {
+          "type": "string",
+          "description": "Active Quarkus profile (dev, test, prod)"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

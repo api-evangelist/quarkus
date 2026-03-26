@@ -40,6 +40,10 @@ apis:
         url: https://quarkus.io/guides/
       - type: Getting Started
         url: https://quarkus.io/get-started/
+      - type: JSONSchema
+        url: json-schema/quarkus-application-properties.json
+      - type: OpenAPI
+        url: openapi/quarkus-dev-ui-openapi.yml
 common:
   - type: Website
     url: https://quarkus.io/
