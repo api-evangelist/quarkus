@@ -1,11 +1,19 @@
 aid: quarkus
 name: Quarkus
 description: >-
-  Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot for building cloud native microservices.
+  Quarkus is a Kubernetes-native Java framework tailored for GraalVM and
+  OpenJDK HotSpot, designed to build cloud-native microservices and
+  serverless applications with fast startup times and low memory footprint.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Microservices
+  - Java
+  - Cloud Native
+  - Kubernetes
+  - GraalVM
+  - Serverless
+  - Frameworks
 url: >-
   https://raw.githubusercontent.com/api-evangelist/quarkus/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -15,14 +23,34 @@ apis:
   - aid: quarkus:quarkus
     name: Quarkus
     description: >-
-      Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot for building cloud native microservices.
-    humanURL: https://github.com/api-evangelist/quarkus
+      Quarkus is a Kubernetes-native Java framework tailored for GraalVM and
+      OpenJDK HotSpot, designed to build cloud-native microservices and
+      serverless applications with fast startup times and low memory footprint.
+    humanURL: https://quarkus.io/
     tags:
       - Microservices
-    properties: []
+      - Java
+      - Cloud Native
+      - Kubernetes
+      - GraalVM
+      - Serverless
+      - Frameworks
+    properties:
+      - type: Documentation
+        url: https://quarkus.io/guides/
+      - type: Getting Started
+        url: https://quarkus.io/get-started/
 common:
   - type: Website
-    url: https://github.com/api-evangelist/quarkus
+    url: https://quarkus.io/
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: Getting Started
+    url: https://quarkus.io/get-started/
+  - type: GitHub Organization
+    url: https://github.com/quarkusio
+  - type: Blog
+    url: https://quarkus.io/blog/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
