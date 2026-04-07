@@ -213,3 +213,9 @@ components:
           type: object
           additionalProperties: true
           description: Additional health check data
+tags:
+  - name: Dev UI
+  - name: Health
+  - name: Info
+  - name: Metrics
+  - name: OpenAPI

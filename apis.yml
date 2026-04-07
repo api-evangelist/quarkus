@@ -7,13 +7,13 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Microservices
-  - Java
   - Cloud Native
-  - Kubernetes
-  - GraalVM
-  - Serverless
   - Frameworks
+  - GraalVM
+  - Java
+  - Kubernetes
+  - Microservices
+  - Serverless
 url: >-
   https://raw.githubusercontent.com/api-evangelist/quarkus/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -28,13 +28,13 @@ apis:
       serverless applications with fast startup times and low memory footprint.
     humanURL: https://quarkus.io/
     tags:
-      - Microservices
-      - Java
       - Cloud Native
-      - Kubernetes
-      - GraalVM
-      - Serverless
       - Frameworks
+      - GraalVM
+      - Java
+      - Kubernetes
+      - Microservices
+      - Serverless
     properties:
       - type: Documentation
         url: https://quarkus.io/guides/
