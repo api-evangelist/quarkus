@@ -20,7 +20,7 @@ paths:
   /q/health:
     get:
       operationId: getHealth
-      summary: Overall health check
+      summary: Quarkus Overall health check
       description: Returns aggregate health status combining liveness, readiness, and startup checks
       tags:
         - Health
@@ -40,7 +40,7 @@ paths:
   /q/health/live:
     get:
       operationId: getLiveness
-      summary: Liveness health check
+      summary: Quarkus Liveness health check
       description: Indicates whether the application is running (for Kubernetes liveness probes)
       tags:
         - Health
@@ -56,7 +56,7 @@ paths:
   /q/health/ready:
     get:
       operationId: getReadiness
-      summary: Readiness health check
+      summary: Quarkus Readiness health check
       description: Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)
       tags:
         - Health
@@ -72,7 +72,7 @@ paths:
   /q/health/started:
     get:
       operationId: getStartup
-      summary: Startup health check
+      summary: Quarkus Startup health check
       description: Indicates whether the application has completed startup (for Kubernetes startup probes)
       tags:
         - Health
@@ -88,7 +88,7 @@ paths:
   /q/metrics:
     get:
       operationId: getMetrics
-      summary: Application metrics
+      summary: Quarkus Application metrics
       description: Returns application metrics in Prometheus exposition format
       tags:
         - Metrics
@@ -105,7 +105,7 @@ paths:
   /q/openapi:
     get:
       operationId: getOpenAPI
-      summary: OpenAPI document
+      summary: Quarkus OpenAPI document
       description: Returns the auto-generated OpenAPI specification for the application
       tags:
         - OpenAPI
@@ -129,7 +129,7 @@ paths:
   /q/swagger-ui:
     get:
       operationId: getSwaggerUI
-      summary: Swagger UI
+      summary: Quarkus Swagger UI
       description: Serves the Swagger UI for interactive API exploration (dev mode or when always-include is true)
       tags:
         - OpenAPI
@@ -143,7 +143,7 @@ paths:
   /q/info:
     get:
       operationId: getInfo
-      summary: Application info
+      summary: Quarkus Application info
       description: Returns build-time and runtime application information
       tags:
         - Info
@@ -158,24 +158,24 @@ paths:
                   os:
                     type: object
                     properties:
-                      name: { type: string }
-                      version: { type: string }
-                      arch: { type: string }
+                      name: {type: string}
+                      version: {type: string}
+                      arch: {type: string}
                   java:
                     type: object
                     properties:
-                      version: { type: string }
+                      version: {type: string}
                   build:
                     type: object
                     properties:
-                      group: { type: string }
-                      artifact: { type: string }
-                      version: { type: string }
-                      time: { type: string }
+                      group: {type: string}
+                      artifact: {type: string}
+                      version: {type: string}
+                      time: {type: string}
   /q/dev-ui:
     get:
       operationId: getDevUI
-      summary: Dev UI dashboard
+      summary: Quarkus Dev UI dashboard
       description: Quarkus Dev UI web console (available only in dev mode) providing extensions, configuration, and build info
       tags:
         - Dev UI
