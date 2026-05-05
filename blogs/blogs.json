@@ -1,0 +1,13 @@
+{
+  "repo": "quarkus",
+  "feeds": [
+    {
+      "source": "https://quarkus.io/blog/",
+      "feed_url": "https://quarkus.io/feed.xml",
+      "saved": 10,
+      "title": "Quarkus"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:34:22Z"
+}
