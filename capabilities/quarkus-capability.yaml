@@ -1,0 +1,320 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Quarkus Dev UI & Health/Metrics API
+  description: Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye
+    Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints.
+    These endpoints are served under the /q path by default.
+  tags:
+  - Quarkus
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: quarkus
+    baseUri: http://localhost:8080
+    description: Quarkus Dev UI & Health/Metrics API HTTP API.
+    resources:
+    - name: q-health
+      path: /q/health
+      operations:
+      - name: gethealth
+        method: GET
+        description: Quarkus Overall health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-health-live
+      path: /q/health/live
+      operations:
+      - name: getliveness
+        method: GET
+        description: Quarkus Liveness health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-health-ready
+      path: /q/health/ready
+      operations:
+      - name: getreadiness
+        method: GET
+        description: Quarkus Readiness health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-health-started
+      path: /q/health/started
+      operations:
+      - name: getstartup
+        method: GET
+        description: Quarkus Startup health check
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-metrics
+      path: /q/metrics
+      operations:
+      - name: getmetrics
+        method: GET
+        description: Quarkus Application metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-openapi
+      path: /q/openapi
+      operations:
+      - name: getopenapi
+        method: GET
+        description: Quarkus OpenAPI document
+        inputParameters:
+        - name: format
+          in: query
+          type: string
+          description: Response format
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-swagger-ui
+      path: /q/swagger-ui
+      operations:
+      - name: getswaggerui
+        method: GET
+        description: Quarkus Swagger UI
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-info
+      path: /q/info
+      operations:
+      - name: getinfo
+        method: GET
+        description: Quarkus Application info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: q-dev-ui
+      path: /q/dev-ui
+      operations:
+      - name: getdevui
+        method: GET
+        description: Quarkus Dev UI dashboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: quarkus-rest
+    description: REST adapter for Quarkus Dev UI & Health/Metrics API.
+    resources:
+    - path: /q/health
+      name: gethealth
+      operations:
+      - method: GET
+        name: gethealth
+        description: Quarkus Overall health check
+        call: quarkus.gethealth
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/health/live
+      name: getliveness
+      operations:
+      - method: GET
+        name: getliveness
+        description: Quarkus Liveness health check
+        call: quarkus.getliveness
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/health/ready
+      name: getreadiness
+      operations:
+      - method: GET
+        name: getreadiness
+        description: Quarkus Readiness health check
+        call: quarkus.getreadiness
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/health/started
+      name: getstartup
+      operations:
+      - method: GET
+        name: getstartup
+        description: Quarkus Startup health check
+        call: quarkus.getstartup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/metrics
+      name: getmetrics
+      operations:
+      - method: GET
+        name: getmetrics
+        description: Quarkus Application metrics
+        call: quarkus.getmetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/openapi
+      name: getopenapi
+      operations:
+      - method: GET
+        name: getopenapi
+        description: Quarkus OpenAPI document
+        call: quarkus.getopenapi
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/swagger-ui
+      name: getswaggerui
+      operations:
+      - method: GET
+        name: getswaggerui
+        description: Quarkus Swagger UI
+        call: quarkus.getswaggerui
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/info
+      name: getinfo
+      operations:
+      - method: GET
+        name: getinfo
+        description: Quarkus Application info
+        call: quarkus.getinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /q/dev-ui
+      name: getdevui
+      operations:
+      - method: GET
+        name: getdevui
+        description: Quarkus Dev UI dashboard
+        call: quarkus.getdevui
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: quarkus-mcp
+    transport: http
+    description: MCP adapter for Quarkus Dev UI & Health/Metrics API for AI agent use.
+    tools:
+    - name: gethealth
+      description: Quarkus Overall health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.gethealth
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getliveness
+      description: Quarkus Liveness health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getliveness
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getreadiness
+      description: Quarkus Readiness health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getreadiness
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getstartup
+      description: Quarkus Startup health check
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getstartup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getmetrics
+      description: Quarkus Application metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getmetrics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getopenapi
+      description: Quarkus OpenAPI document
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getopenapi
+      with:
+        format: tools.format
+      inputParameters:
+      - name: format
+        type: string
+        description: Response format
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getswaggerui
+      description: Quarkus Swagger UI
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getswaggerui
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinfo
+      description: Quarkus Application info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getinfo
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getdevui
+      description: Quarkus Dev UI dashboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: quarkus.getdevui
+      outputParameters:
+      - type: object
+        mapping: $.
