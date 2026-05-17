@@ -38,7 +38,7 @@ apis:
     properties:
       - type: Documentation
         url: https://quarkus.io/guides/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://quarkus.io/get-started/
       - type: JSONSchema
         url: json-schema/quarkus-application-properties.json
@@ -49,9 +49,9 @@ common:
     url: https://quarkus.io/
   - type: Documentation
     url: https://quarkus.io/guides/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://quarkus.io/get-started/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/quarkusio
   - type: Blog
     url: https://quarkus.io/blog/
