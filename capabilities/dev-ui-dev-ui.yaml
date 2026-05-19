@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Quarkus Dev UI & Health/Metrics API — Dev UI
+  description: 'Quarkus Dev UI & Health/Metrics API — Dev UI. 1 operations. Lead operation: Quarkus Dev UI dashboard. Self-contained
+    Naftiko capability covering one Quarkus business surface.'
+  tags:
+  - Quarkus
+  - Dev UI
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    QUARKUS_API_KEY: QUARKUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dev-ui-dev-ui
+    baseUri: http://localhost:8080
+    description: Quarkus Dev UI & Health/Metrics API — Dev UI business capability. Self-contained, no shared references.
+    resources:
+    - name: q-dev-ui
+      path: /q/dev-ui
+      operations:
+      - name: getdevui
+        method: GET
+        description: Quarkus Dev UI dashboard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dev-ui-dev-ui-rest
+    port: 8080
+    description: REST adapter for Quarkus Dev UI & Health/Metrics API — Dev UI. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/q/dev-ui
+      name: q-dev-ui
+      description: REST surface for q-dev-ui.
+      operations:
+      - method: GET
+        name: getdevui
+        description: Quarkus Dev UI dashboard
+        call: dev-ui-dev-ui.getdevui
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dev-ui-dev-ui-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Quarkus Dev UI & Health/Metrics API — Dev UI. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: quarkus-dev-ui-dashboard
+      description: Quarkus Dev UI dashboard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dev-ui-dev-ui.getdevui
+      outputParameters:
+      - type: object
+        mapping: $.

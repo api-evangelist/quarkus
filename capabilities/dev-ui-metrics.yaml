@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Quarkus Dev UI & Health/Metrics API — Metrics
+  description: 'Quarkus Dev UI & Health/Metrics API — Metrics. 1 operations. Lead operation: Quarkus Application metrics.
+    Self-contained Naftiko capability covering one Quarkus business surface.'
+  tags:
+  - Quarkus
+  - Metrics
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    QUARKUS_API_KEY: QUARKUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dev-ui-metrics
+    baseUri: http://localhost:8080
+    description: Quarkus Dev UI & Health/Metrics API — Metrics business capability. Self-contained, no shared references.
+    resources:
+    - name: q-metrics
+      path: /q/metrics
+      operations:
+      - name: getmetrics
+        method: GET
+        description: Quarkus Application metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dev-ui-metrics-rest
+    port: 8080
+    description: REST adapter for Quarkus Dev UI & Health/Metrics API — Metrics. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/q/metrics
+      name: q-metrics
+      description: REST surface for q-metrics.
+      operations:
+      - method: GET
+        name: getmetrics
+        description: Quarkus Application metrics
+        call: dev-ui-metrics.getmetrics
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dev-ui-metrics-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Quarkus Dev UI & Health/Metrics API — Metrics. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: quarkus-application-metrics
+      description: Quarkus Application metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dev-ui-metrics.getmetrics
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,67 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Quarkus Dev UI & Health/Metrics API — Info
+  description: 'Quarkus Dev UI & Health/Metrics API — Info. 1 operations. Lead operation: Quarkus Application info. Self-contained
+    Naftiko capability covering one Quarkus business surface.'
+  tags:
+  - Quarkus
+  - Info
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    QUARKUS_API_KEY: QUARKUS_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: dev-ui-info
+    baseUri: http://localhost:8080
+    description: Quarkus Dev UI & Health/Metrics API — Info business capability. Self-contained, no shared references.
+    resources:
+    - name: q-info
+      path: /q/info
+      operations:
+      - name: getinfo
+        method: GET
+        description: Quarkus Application info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: dev-ui-info-rest
+    port: 8080
+    description: REST adapter for Quarkus Dev UI & Health/Metrics API — Info. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/q/info
+      name: q-info
+      description: REST surface for q-info.
+      operations:
+      - method: GET
+        name: getinfo
+        description: Quarkus Application info
+        call: dev-ui-info.getinfo
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: dev-ui-info-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Quarkus Dev UI & Health/Metrics API — Info. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: quarkus-application-info
+      description: Quarkus Application info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: dev-ui-info.getinfo
+      outputParameters:
+      - type: object
+        mapping: $.
