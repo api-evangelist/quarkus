@@ -2,12 +2,20 @@
   "repo": "quarkus",
   "feeds": [
     {
-      "source": "https://quarkus.io/blog/",
+      "source": "https://quarkus.io/feed",
       "feed_url": "https://quarkus.io/feed",
-      "title": "Quarkus",
-      "saved": 46
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/quarkusio",
+      "feed_url": "https://github.com/quarkusio",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "post_count": 59,
-  "fetched": "2026-05-17T20:20:35Z"
+  "post_count": 69,
+  "fetched": "2026-06-01T23:35:02Z"
 }
