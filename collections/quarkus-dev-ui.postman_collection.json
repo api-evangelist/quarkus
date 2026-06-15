@@ -1,0 +1,871 @@
+{
+  "item": [
+    {
+      "id": "5c740b83-7c4f-4cb6-91d4-670a4e4a3ee8",
+      "name": "Dev UI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "783ec8a8-582f-4f4f-a3e4-d4ac17914d06",
+          "name": "Quarkus Dev UI dashboard",
+          "request": {
+            "name": "Quarkus Dev UI dashboard",
+            "description": {
+              "content": "Quarkus Dev UI web console (available only in dev mode) providing extensions, configuration, and build info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "dev-ui"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fef72fda-c5d1-4b1e-820f-f731f01a3002",
+              "name": "Dev UI HTML dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "dev-ui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "1dd704a6-af9e-48d6-a29f-4106b48725cd",
+      "name": "Health",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a684cd2a-92af-4ddc-932a-d2a5901b7fcc",
+          "name": "Quarkus Overall health check",
+          "request": {
+            "name": "Quarkus Overall health check",
+            "description": {
+              "content": "Returns aggregate health status combining liveness, readiness, and startup checks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5dad5abc-82c4-466b-be47-c8fae8c66d95",
+              "name": "All health checks pass",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 2031\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2d39f23f-43c7-4fe4-839f-def49e8ad111",
+              "name": "One or more health checks failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 7777\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 6631,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7d54e12c-305c-49e7-ad25-be896a2f1ca0",
+          "name": "Quarkus Liveness health check",
+          "request": {
+            "name": "Quarkus Liveness health check",
+            "description": {
+              "content": "Indicates whether the application is running (for Kubernetes liveness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "be361b24-7d5b-41c9-80ea-f89808e72a64",
+              "name": "Application is live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 7777\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 6631,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "180d632e-a52b-42ce-9d03-4dc2ebc806e3",
+              "name": "Application is not live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8c64e07e-7a0e-4779-af97-c6f616c0049b",
+          "name": "Quarkus Readiness health check",
+          "request": {
+            "name": "Quarkus Readiness health check",
+            "description": {
+              "content": "Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2b5deb94-a827-44ba-90f1-d806be383e03",
+              "name": "Application is ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 7777\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 6631,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cc479b47-a52a-4c33-9a7f-b5ed4da97a9a",
+              "name": "Application is not ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8840ec41-1869-44a6-9264-94ff05fdea75",
+          "name": "Quarkus Startup health check",
+          "request": {
+            "name": "Quarkus Startup health check",
+            "description": {
+              "content": "Indicates whether the application has completed startup (for Kubernetes startup probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "started"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cef38404-1460-405c-838b-e409d8d23757",
+              "name": "Application has started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"DOWN\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 7777\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 6631,\n        \"key_1\": \"string\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b21517d2-9a44-4dc2-8a32-820d52f3d46c",
+              "name": "Application has not started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "d3852d57-20e7-4820-8225-23eab808464a",
+      "name": "Info",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c64cc191-3687-4638-b685-e605150758be",
+          "name": "Quarkus Application info",
+          "request": {
+            "name": "Quarkus Application info",
+            "description": {
+              "content": "Returns build-time and runtime application information",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8d0c73c-8f28-4d7d-96fb-14e14febcf30",
+              "name": "Application info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"os\": {\n    \"name\": \"string\",\n    \"version\": \"string\",\n    \"arch\": \"string\"\n  },\n  \"java\": {\n    \"version\": \"string\"\n  },\n  \"build\": {\n    \"group\": \"string\",\n    \"artifact\": \"string\",\n    \"version\": \"string\",\n    \"time\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "334d39bf-e902-44c1-819d-6387fc837551",
+      "name": "Metrics",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b94d6be4-91ad-46d7-8d35-1ddd407b5345",
+          "name": "Quarkus Application metrics",
+          "request": {
+            "name": "Quarkus Application metrics",
+            "description": {
+              "content": "Returns application metrics in Prometheus exposition format",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "metrics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "459a09e6-ea74-45a5-a998-6fb868e5bd10",
+              "name": "Prometheus metrics",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "metrics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "287f554e-3216-45a7-84b4-334ef558ab92",
+      "name": "OpenAPI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c44fe940-988b-491c-8cff-83207edb72e6",
+          "name": "Quarkus OpenAPI document",
+          "request": {
+            "name": "Quarkus OpenAPI document",
+            "description": {
+              "content": "Returns the auto-generated OpenAPI specification for the application",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "openapi"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "<string>",
+                  "description": "Response format"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fdf9fb57-12c6-45af-9e7a-82fab59c97c3",
+              "name": "OpenAPI specification document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "openapi"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "format",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e08f4200-9dc1-40ca-9eaf-2fcb03701f81",
+          "name": "Quarkus Swagger UI",
+          "request": {
+            "name": "Quarkus Swagger UI",
+            "description": {
+              "content": "Serves the Swagger UI for interactive API exploration (dev mode or when always-include is true)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "swagger-ui"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "167b2baa-a9d7-4118-86f8-b4c3cddfb7ce",
+              "name": "Swagger UI HTML page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "swagger-ui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "01e8183c-3e6c-40b9-92b5-cc68a1542137",
+    "name": "Quarkus Dev UI & Health/Metrics API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.\n\nContact Support:\n Name: Quarkus Team",
+      "type": "text/plain"
+    }
+  }
+}

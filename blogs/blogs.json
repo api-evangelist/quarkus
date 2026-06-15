@@ -5,7 +5,7 @@
       "source": "https://quarkus.io/feed",
       "feed_url": "https://quarkus.io/feed",
       "title": "",
-      "saved": 0,
+      "saved": 5,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 69,
-  "fetched": "2026-06-01T23:35:02Z"
+  "post_count": 77,
+  "fetched": "2026-06-14T20:42:17Z"
 }

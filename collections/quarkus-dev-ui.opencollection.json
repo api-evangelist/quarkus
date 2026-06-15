@@ -1,0 +1,157 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quarkus Dev UI & Health/Metrics API",
+    "version": "3.17.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Overall health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health"
+          },
+          "docs": "Returns aggregate health status combining liveness, readiness, and startup checks"
+        },
+        {
+          "info": {
+            "name": "Quarkus Liveness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/live"
+          },
+          "docs": "Indicates whether the application is running (for Kubernetes liveness probes)"
+        },
+        {
+          "info": {
+            "name": "Quarkus Readiness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/ready"
+          },
+          "docs": "Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)"
+        },
+        {
+          "info": {
+            "name": "Quarkus Startup health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/started"
+          },
+          "docs": "Indicates whether the application has completed startup (for Kubernetes startup probes)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Application metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/metrics"
+          },
+          "docs": "Returns application metrics in Prometheus exposition format"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OpenAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus OpenAPI document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/openapi",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format"
+              }
+            ]
+          },
+          "docs": "Returns the auto-generated OpenAPI specification for the application"
+        },
+        {
+          "info": {
+            "name": "Quarkus Swagger UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/swagger-ui"
+          },
+          "docs": "Serves the Swagger UI for interactive API exploration (dev mode or when always-include is true)"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Application info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/info"
+          },
+          "docs": "Returns build-time and runtime application information"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Dev UI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Dev UI dashboard",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/dev-ui"
+          },
+          "docs": "Quarkus Dev UI web console (available only in dev mode) providing extensions, configuration, and build info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,28 +1,11 @@
 aid: quarkus
 name: Quarkus
-description: Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build cloud-native
+description: >-
+  Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build cloud-native
   microservices and serverless applications with fast startup times and low memory footprint.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-- Cloud Native
-- Frameworks
-- GraalVM
-- Java
-- Kubernetes
-- Microservices
-- Serverless
-url: https://raw.githubusercontent.com/api-evangelist/quarkus/refs/heads/main/apis.yml
-created: '2026-03-26'
-modified: '2026-05-19'
-specificationVersion: '0.19'
-apis:
-- aid: quarkus:quarkus
-  name: Quarkus
-  description: Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build cloud-native
-    microservices and serverless applications with fast startup times and low memory footprint.
-  humanURL: https://quarkus.io/
-  tags:
   - Cloud Native
   - Frameworks
   - GraalVM
@@ -30,44 +13,53 @@ apis:
   - Kubernetes
   - Microservices
   - Serverless
-  properties:
+url: https://raw.githubusercontent.com/api-evangelist/quarkus/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-05-19'
+specificationVersion: '0.19'
+apis:
+  - aid: quarkus:quarkus
+    name: Quarkus
+    description: >-
+      Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build
+      cloud-native microservices and serverless applications with fast startup times and low memory footprint.
+    humanURL: https://quarkus.io/
+    tags:
+      - Cloud Native
+      - Frameworks
+      - GraalVM
+      - Java
+      - Kubernetes
+      - Microservices
+      - Serverless
+    properties:
+      - type: Documentation
+        url: https://quarkus.io/guides/
+      - type: GettingStarted
+        url: https://quarkus.io/get-started/
+      - type: JSONSchema
+        url: json-schema/quarkus-application-properties.json
+      - type: OpenAPI
+        url: openapi/quarkus-dev-ui-openapi.yml
+common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/quarkusio
+  - type: Website
+    url: https://quarkus.io/
   - type: Documentation
     url: https://quarkus.io/guides/
   - type: GettingStarted
     url: https://quarkus.io/get-started/
-  - type: JSONSchema
-    url: json-schema/quarkus-application-properties.json
-  - type: OpenAPI
-    url: openapi/quarkus-dev-ui-openapi.yml
-  - type: NaftikoCapability
-    url: capabilities/dev-ui-dev-ui.yaml
-  - type: NaftikoCapability
-    url: capabilities/dev-ui-health.yaml
-  - type: NaftikoCapability
-    url: capabilities/dev-ui-info.yaml
-  - type: NaftikoCapability
-    url: capabilities/dev-ui-metrics.yaml
-  - type: NaftikoCapability
-    url: capabilities/dev-ui-openapi.yaml
-common:
-- type: LinkedIn
-  url: https://www.linkedin.com/company/quarkusio
-- type: Website
-  url: https://quarkus.io/
-- type: Documentation
-  url: https://quarkus.io/guides/
-- type: GettingStarted
-  url: https://quarkus.io/get-started/
-- type: GitHubOrganization
-  url: https://github.com/quarkusio
-- type: Blog
-  url: https://quarkus.io/blog/
-- name: MCP Server
-  url: https://github.com/quarkusio/quarkus-agent-mcp
-  type: MCPServer
-- name: Agent Skills
-  url: https://github.com/quarkusio/quarkus-skills
-  type: AgentSkill
+  - type: GitHubOrganization
+    url: https://github.com/quarkusio
+  - type: Blog
+    url: https://quarkus.io/blog/
+  - name: MCP Server
+    url: https://github.com/quarkusio/quarkus-agent-mcp
+    type: MCPServer
+  - name: Agent Skills
+    url: https://github.com/quarkusio/quarkus-skills
+    type: AgentSkill
 maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+  - FN: Kin Lane
+    email: kin@apievangelist.com
