@@ -59,7 +59,7 @@ common:
     type: MCPServer
   - name: Agent Skills
     url: https://github.com/quarkusio/quarkus-skills
-    type: AgentSkill
+    type: AgentSkills
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
