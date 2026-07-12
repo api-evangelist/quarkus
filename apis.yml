@@ -42,6 +42,10 @@ apis:
       - type: OpenAPI
         url: openapi/quarkus-dev-ui-openapi.yml
 common:
+  - type: VulnerabilityDisclosure
+    url: security/quarkus-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/quarkus-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/quarkusio
   - type: Website
