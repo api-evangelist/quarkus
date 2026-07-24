@@ -1,0 +1,116 @@
+openapi: 3.0.3
+info:
+  title: Quarkus & /Metrics Dev UI Health API
+  description: Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.
+  version: 3.17.0
+  contact:
+    name: Quarkus Team
+    url: https://quarkus.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: Default Quarkus development server
+tags:
+- name: Health
+paths:
+  /q/health:
+    get:
+      operationId: getHealth
+      summary: Quarkus Overall health check
+      description: Returns aggregate health status combining liveness, readiness, and startup checks
+      tags:
+      - Health
+      responses:
+        '200':
+          description: All health checks pass
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: One or more health checks failed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+  /q/health/live:
+    get:
+      operationId: getLiveness
+      summary: Quarkus Liveness health check
+      description: Indicates whether the application is running (for Kubernetes liveness probes)
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Application is live
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Application is not live
+  /q/health/ready:
+    get:
+      operationId: getReadiness
+      summary: Quarkus Readiness health check
+      description: Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Application is ready
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Application is not ready
+  /q/health/started:
+    get:
+      operationId: getStartup
+      summary: Quarkus Startup health check
+      description: Indicates whether the application has completed startup (for Kubernetes startup probes)
+      tags:
+      - Health
+      responses:
+        '200':
+          description: Application has started
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+        '503':
+          description: Application has not started
+components:
+  schemas:
+    HealthCheck:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Health check procedure name
+        status:
+          type: string
+          enum:
+          - UP
+          - DOWN
+        data:
+          type: object
+          additionalProperties: true
+          description: Additional health check data
+    HealthResponse:
+      type: object
+      description: MicroProfile Health response format
+      properties:
+        status:
+          type: string
+          enum:
+          - UP
+          - DOWN
+          description: Aggregate health status
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck'

@@ -1,0 +1,34 @@
+openapi: 3.0.3
+info:
+  title: Quarkus & Health/ Dev UI Metrics API
+  description: Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.
+  version: 3.17.0
+  contact:
+    name: Quarkus Team
+    url: https://quarkus.io/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: http://localhost:8080
+  description: Default Quarkus development server
+tags:
+- name: Metrics
+paths:
+  /q/metrics:
+    get:
+      operationId: getMetrics
+      summary: Quarkus Application metrics
+      description: Returns application metrics in Prometheus exposition format
+      tags:
+      - Metrics
+      responses:
+        '200':
+          description: Prometheus metrics
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: object
