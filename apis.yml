@@ -4,7 +4,19 @@ description: >-
   Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build cloud-native
   microservices and serverless applications with fast startup times and low memory footprint.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/quarkus.png
 tags:
   - Cloud Native
   - Frameworks
@@ -18,29 +30,81 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: quarkus:quarkus
-    name: Quarkus
-    description: >-
-      Quarkus is a Kubernetes-native Java framework tailored for GraalVM and OpenJDK HotSpot, designed to build
-      cloud-native microservices and serverless applications with fast startup times and low memory footprint.
-    humanURL: https://quarkus.io/
-    tags:
-      - Cloud Native
-      - Frameworks
-      - GraalVM
-      - Java
-      - Kubernetes
-      - Microservices
-      - Serverless
-    properties:
-      - type: Documentation
-        url: https://quarkus.io/guides/
-      - type: GettingStarted
-        url: https://quarkus.io/get-started/
-      - type: JSONSchema
-        url: json-schema/quarkus-application-properties.json
-      - type: OpenAPI
-        url: openapi/quarkus-dev-ui-openapi.yml
+- aid: quarkus:quarkus-dev-ui-api
+  name: Quarkus Dev UI API
+  description: The Dev UI API from Quarkus — 1 operation(s) for dev ui.
+  humanURL: https://quarkus.io/
+  tags:
+  - Dev UI
+  properties:
+  - type: OpenAPI
+    url: openapi/quarkus-dev-ui-api-openapi.yml
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: GettingStarted
+    url: https://quarkus.io/get-started/
+  - type: JSONSchema
+    url: json-schema/quarkus-application-properties.json
+- aid: quarkus:quarkus-health-api
+  name: Quarkus Health API
+  description: The Health API from Quarkus — 4 operation(s) for health.
+  humanURL: https://quarkus.io/
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/quarkus-health-api-openapi.yml
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: GettingStarted
+    url: https://quarkus.io/get-started/
+  - type: JSONSchema
+    url: json-schema/quarkus-application-properties.json
+- aid: quarkus:quarkus-info-api
+  name: Quarkus Info API
+  description: The Info API from Quarkus — 1 operation(s) for info.
+  humanURL: https://quarkus.io/
+  tags:
+  - Info
+  properties:
+  - type: OpenAPI
+    url: openapi/quarkus-info-api-openapi.yml
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: GettingStarted
+    url: https://quarkus.io/get-started/
+  - type: JSONSchema
+    url: json-schema/quarkus-application-properties.json
+- aid: quarkus:quarkus-metrics-api
+  name: Quarkus Metrics API
+  description: The Metrics API from Quarkus — 1 operation(s) for metrics.
+  humanURL: https://quarkus.io/
+  tags:
+  - Metrics
+  properties:
+  - type: OpenAPI
+    url: openapi/quarkus-metrics-api-openapi.yml
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: GettingStarted
+    url: https://quarkus.io/get-started/
+  - type: JSONSchema
+    url: json-schema/quarkus-application-properties.json
+- aid: quarkus:quarkus-openapi-api
+  name: Quarkus OpenAPI API
+  description: The OpenAPI API from Quarkus — 2 operation(s) for openapi.
+  humanURL: https://quarkus.io/
+  tags:
+  - OpenAPI
+  properties:
+  - type: OpenAPI
+    url: openapi/quarkus-openapi-api-openapi.yml
+  - type: Documentation
+    url: https://quarkus.io/guides/
+  - type: GettingStarted
+    url: https://quarkus.io/get-started/
+  - type: JSONSchema
+    url: json-schema/quarkus-application-properties.json
 common:
   - type: AgenticAccess
     url: agentic-access/quarkus-agentic-access.yml
