@@ -1,0 +1,22 @@
+{
+  "provider": "quarkus",
+  "sources": [
+    "quarkus-dev-ui-api-openapi.yml",
+    "quarkus-health-api-openapi.yml",
+    "quarkus-info-api-openapi.yml",
+    "quarkus-metrics-api-openapi.yml",
+    "quarkus-openapi-api-openapi.yml"
+  ],
+  "outputs": [
+    "quarkus-dev-ui-api-openapi.yml",
+    "quarkus-health-api-openapi.yml",
+    "quarkus-info-api-openapi.yml",
+    "quarkus-metrics-api-openapi.yml",
+    "quarkus-openapi-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
