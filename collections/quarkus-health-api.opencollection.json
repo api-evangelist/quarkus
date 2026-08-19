@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quarkus & /Metrics Dev UI Health API",
+    "version": "3.17.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Overall health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health"
+          },
+          "docs": "Returns aggregate health status combining liveness, readiness, and startup checks"
+        },
+        {
+          "info": {
+            "name": "Quarkus Liveness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/live"
+          },
+          "docs": "Indicates whether the application is running (for Kubernetes liveness probes)"
+        },
+        {
+          "info": {
+            "name": "Quarkus Readiness health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/ready"
+          },
+          "docs": "Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)"
+        },
+        {
+          "info": {
+            "name": "Quarkus Startup health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/health/started"
+          },
+          "docs": "Indicates whether the application has completed startup (for Kubernetes startup probes)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

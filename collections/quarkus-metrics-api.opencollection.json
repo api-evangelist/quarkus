@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quarkus & Health/ Dev UI Metrics API",
+    "version": "3.17.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Metrics",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Application metrics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/metrics"
+          },
+          "docs": "Returns application metrics in Prometheus exposition format"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

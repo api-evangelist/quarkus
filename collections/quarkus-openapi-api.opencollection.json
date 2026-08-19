@@ -1,0 +1,48 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quarkus & Health/Metrics Dev UI OpenAPI API",
+    "version": "3.17.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenAPI",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus OpenAPI document",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/openapi",
+            "params": [
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format"
+              }
+            ]
+          },
+          "docs": "Returns the auto-generated OpenAPI specification for the application"
+        },
+        {
+          "info": {
+            "name": "Quarkus Swagger UI",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/swagger-ui"
+          },
+          "docs": "Serves the Swagger UI for interactive API exploration (dev mode or when always-include is true)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

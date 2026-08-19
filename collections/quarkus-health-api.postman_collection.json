@@ -1,0 +1,455 @@
+{
+  "item": [
+    {
+      "id": "05e39ef3-2348-4c07-aa8c-8268e94184f3",
+      "name": "Health",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "55a46f99-8241-4915-9036-015e120b05d2",
+          "name": "Quarkus Overall health check",
+          "request": {
+            "name": "Quarkus Overall health check",
+            "description": {
+              "content": "Returns aggregate health status combining liveness, readiness, and startup checks",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "51ed206f-6044-4643-b8fa-7461d28a438b",
+              "name": "All health checks pass",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": 1948.5495859795165\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"UP\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 1867\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d3402050-249a-47e2-b0b5-0736be6f2a4d",
+              "name": "One or more health checks failed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 8001\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5967.724221500632,\n        \"key_2\": 3441.5968903337157,\n        \"key_3\": 5039,\n        \"key_4\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99f917a4-69fc-4c30-a12e-c2c16fe2eada",
+          "name": "Quarkus Liveness health check",
+          "request": {
+            "name": "Quarkus Liveness health check",
+            "description": {
+              "content": "Indicates whether the application is running (for Kubernetes liveness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "live"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93f6776b-19c4-4634-89ba-014e07319b2e",
+              "name": "Application is live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 8001\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5967.724221500632,\n        \"key_2\": 3441.5968903337157,\n        \"key_3\": 5039,\n        \"key_4\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e5bf1770-4a4e-4dc3-9b78-d13ba3c1ba08",
+              "name": "Application is not live",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "live"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "245817b7-4a0e-4d4c-a28d-12a8e6c73725",
+          "name": "Quarkus Readiness health check",
+          "request": {
+            "name": "Quarkus Readiness health check",
+            "description": {
+              "content": "Indicates whether the application is ready to accept traffic (for Kubernetes readiness probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "ready"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8a7b44c-e43f-4127-a785-206668f59427",
+              "name": "Application is ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 8001\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5967.724221500632,\n        \"key_2\": 3441.5968903337157,\n        \"key_3\": 5039,\n        \"key_4\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a06110c2-0f26-4f2c-b9a3-38d8fda89fb5",
+              "name": "Application is not ready",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "ready"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6494b712-c9c4-4615-9335-b3d78178cf05",
+          "name": "Quarkus Startup health check",
+          "request": {
+            "name": "Quarkus Startup health check",
+            "description": {
+              "content": "Indicates whether the application has completed startup (for Kubernetes startup probes)",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "health",
+                "started"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f7f1dbe6-c689-4892-a5ce-f6a68610e757",
+              "name": "Application has started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"UP\",\n  \"checks\": [\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": 8001\n      }\n    },\n    {\n      \"name\": \"string\",\n      \"status\": \"DOWN\",\n      \"data\": {\n        \"key_0\": \"string\",\n        \"key_1\": 5967.724221500632,\n        \"key_2\": 3441.5968903337157,\n        \"key_3\": 5039,\n        \"key_4\": true\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba479f6b-9392-4f3b-b46b-9d10fb1d94a6",
+              "name": "Application has not started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "health",
+                    "started"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "70a5e958-7163-43a0-b9c6-02318bd10f8d",
+    "name": "Quarkus & /Metrics Dev UI Health API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.\n\nContact Support:\n Name: Quarkus Team",
+      "type": "text/plain"
+    }
+  }
+}

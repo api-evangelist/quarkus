@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Quarkus & Health/Metrics Dev UI Info API",
+    "version": "3.17.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Info",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Quarkus Application info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "http://localhost:8080/q/info"
+          },
+          "docs": "Returns build-time and runtime application information"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

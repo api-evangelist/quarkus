@@ -1,0 +1,104 @@
+{
+  "item": [
+    {
+      "id": "5388d222-6b7f-4249-86d8-ebaf1866d962",
+      "name": "Dev UI",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bcbab7b7-6418-488d-9fd2-b49f3abc6f69",
+          "name": "Quarkus Dev UI dashboard",
+          "request": {
+            "name": "Quarkus Dev UI dashboard",
+            "description": {
+              "content": "Quarkus Dev UI web console (available only in dev mode) providing extensions, configuration, and build info",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "q",
+                "dev-ui"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77a3938a-adde-40c0-b0f3-29236cfa83aa",
+              "name": "Dev UI HTML dashboard",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "q",
+                    "dev-ui"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "http://localhost:8080",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "faa848ac-e03d-4552-a338-936335444cd1",
+    "name": "Quarkus & Health/Metrics Dev UI API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.\n\nContact Support:\n Name: Quarkus Team",
+      "type": "text/plain"
+    }
+  }
+}
