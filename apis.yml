@@ -18,6 +18,14 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/quarkus.png
 tags:
+  - Cloud-Native
+  - Frameworks
+  - GraalVM
+  - Java
+  - Kubernetes
+  - Microservices
+  - Serverless
+tags_raw:
   - Cloud Native
   - Frameworks
   - GraalVM
