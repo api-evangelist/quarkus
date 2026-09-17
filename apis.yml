@@ -109,15 +109,15 @@ apis:
     url: https://quarkus.io/get-started/
   - type: JSONSchema
     url: json-schema/quarkus-application-properties.json
-- aid: quarkus:quarkus-openapi-api
-  name: Quarkus OpenAPI API
-  description: The OpenAPI API from Quarkus — 2 operation(s) for openapi.
+- aid: quarkus:quarkus-open-api-api
+  name: Quarkus Open API
+  description: The Open API API from Quarkus — 2 operation(s) for open api.
   humanURL: https://quarkus.io/
   tags:
-  - OpenAPI
+  - Open API
   properties:
   - type: OpenAPI
-    url: openapi/quarkus-openapi-api-openapi.yml
+    url: openapi/quarkus-open-api-api-openapi.yml
   - type: Documentation
     url: https://quarkus.io/guides/
   - type: GettingStarted
