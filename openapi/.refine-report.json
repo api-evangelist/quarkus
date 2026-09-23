@@ -1,11 +1,7 @@
 {
   "provider": "quarkus",
   "sources": [
-    "quarkus-dev-ui-api-openapi.yml",
-    "quarkus-health-api-openapi.yml",
-    "quarkus-info-api-openapi.yml",
-    "quarkus-metrics-api-openapi.yml",
-    "quarkus-openapi-api-openapi.yml"
+    "_original/quarkus-dev-ui-openapi.yml"
   ],
   "outputs": [
     "quarkus-dev-ui-api-openapi.yml",
@@ -14,9 +10,22 @@
     "quarkus-metrics-api-openapi.yml",
     "quarkus-openapi-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "quarkus-dev-ui-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "superseded outputs removed: quarkus-open-api-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 5 total)"
+  ],
+  "skipped": [
+    "quarkus-dev-ui-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "quarkus-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "quarkus-info-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "quarkus-metrics-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "quarkus-open-api-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

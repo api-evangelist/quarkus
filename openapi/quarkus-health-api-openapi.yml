@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Quarkus & /Metrics Dev UI Health API
+  title: Quarkus Dev UI & /Metrics Health API
   description: Quarkus exposes management endpoints for health checks (via SmallRye Health), metrics (via Micrometer/SmallRye Metrics), and OpenAPI documentation. In dev mode, the Dev UI provides a web console with additional introspection endpoints. These endpoints are served under the /q path by default.
   version: 3.17.0
   contact:
@@ -85,6 +85,20 @@ paths:
           description: Application has not started
 components:
   schemas:
+    HealthResponse:
+      type: object
+      description: MicroProfile Health response format
+      properties:
+        status:
+          type: string
+          enum:
+          - UP
+          - DOWN
+          description: Aggregate health status
+        checks:
+          type: array
+          items:
+            $ref: '#/components/schemas/HealthCheck'
     HealthCheck:
       type: object
       properties:
@@ -100,17 +114,3 @@ components:
           type: object
           additionalProperties: true
           description: Additional health check data
-    HealthResponse:
-      type: object
-      description: MicroProfile Health response format
-      properties:
-        status:
-          type: string
-          enum:
-          - UP
-          - DOWN
-          description: Aggregate health status
-        checks:
-          type: array
-          items:
-            $ref: '#/components/schemas/HealthCheck'
