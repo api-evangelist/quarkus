@@ -114,6 +114,8 @@ apis:
   description: The Open API API from Quarkus — 2 operation(s) for open api.
   humanURL: https://quarkus.io/
   tags:
+  - OpenAPI
+  tags_raw:
   - Open API
   properties:
   - type: OpenAPI
