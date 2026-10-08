@@ -125,6 +125,12 @@ apis:
   - type: JSONSchema
     url: json-schema/quarkus-application-properties.json
 common:
+  - type: Plans
+    url: plans/quarkus-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/quarkus-rate-limits.yml
+  - type: FinOps
+    url: finops/quarkus-finops.yml
   - type: AgenticAccess
     url: agentic-access/quarkus-agentic-access.yml
   - type: VulnerabilityDisclosure
